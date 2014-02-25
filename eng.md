@@ -1,5 +1,5 @@
-<section class="col-2-3"><time>Written on July 18, 2013</time>by 
-[Flo Preynat][1] 
+# Automate the generation of your style guides with KSS-node
+
 Style guides are design deliverables providing details such as fonts, colors,
 white space, and interface elements that communicate the essence of a visual 
 brand for the web, as well as how and when to use them.  
@@ -17,14 +17,16 @@ want/need to focus on other types of documentation (such as CMS functional doc
 an excellent opportunity to keep {such a detailed} track of all the nifty 
 features we have included on our websites.
 
-### Automation
+
+## Automation
 
 You may know of tools such as [Stylify Me][2] that help designers quickly gain
 access to an automatically generated style guide, but let’s admit it: although 
 such overviews might be helpful in some cases, especially on the typographic 
 front, nothing will replace a hand made and carefully-planned style guide.
 
-### KSS
+
+## KSS
 
 This is where KSS comes in. [KSS][3] is intended to help automate the creation
 of a living styleguide. It can be used with CSS, SCSS, LESS and more. I’m going 
@@ -32,19 +34,18 @@ to show you how to use KSS-node, the NodeJS implementation of KSS. For this you�
 ll need to have[node][4] and its package manager [npm][5] installed on your
 system.
 
-### Let’s get started
+
+## Let’s get started
 
 You can follow the documention as much as I can but here’s a quick summary:
 
 Install kss-node globally by running on your terminal:
 
-    npm install -g kss
-    
+    npm install -g kss    
 
 Once installed, check out the various kss-node commands by running:
 
     kss-node
-    
 
 You should get the following:
 
@@ -60,9 +61,9 @@ You should get the following:
       -c, --css       Compile and include a CSS stylesheet           [string]
       -m, --mask      Use a custom mask for detecting stylesheets    [string]
       -i, --init      Create a new styleguide template to work from
-    
 
-### My way or the highway… unless
+
+## My way or the highway… unless
 
 Having succesfully tested kss-node with an end file made of plain vanilla css,
 and since I’m happy with the process I currently have in place, I would be happy
@@ -76,7 +77,8 @@ way of generating style guides is defo compatible with the use of a pre-
 processor like Sass. Just bare in mind you will need an uncompressed css version
 of the stylesheet whenever generating the style guide.
 
-### Markup
+
+## Markup
 
 So this is how it works… And if you follow my lead (which is the ignorant one
 , see section above, it will work whether yo use css or scss (reminder for Sassy
@@ -95,8 +97,6 @@ will enter something along the lines of:
     made by @shoogledesigns
     
     http://shoogledesigns.com
-    
-    
 
 Then, in your CSS or SCSS file (in my case), include the following commented-
 out section before any feature you need to include in your styleguide:
@@ -112,9 +112,9 @@ out section before any feature you need to include in your styleguide:
     
     Styleguide X (digit number to increment eg chapter)
     */
-    
 
-### Example
+
+## Example
 
     /* Buttons
     
@@ -139,7 +139,6 @@ out section before any feature you need to include in your styleguide:
     		font-size: 40px;
     	}
     }
-    
 
 I’m sure that by now, you know what I’m gonna say next. Repeat this as many
 times as you need sections to be added in the style guide.  
@@ -174,7 +173,6 @@ I’m going to create a second set just for the sake of example.
     .green {
     	background-color: green;
     }
-    
 
 Obviously, this is far from optimal coding, but you catch my drift.  
 This is what your project should look like in Sublime Text2. A markdown file in
@@ -184,14 +182,14 @@ your css folder and a bunch of partials to be imported in your global scss file
 
 ![KSS-node the scss way][6]
 
-### Generate your living styleguide
+
+## Generate your living styleguide
 
 Right, so you’ve worked your way through the CSS files and annotated every
 part of your stylesheet with descriptive and detailed KSS markups. In the 
 terminal, go to the root of your project folder, and type the following:
 
     kss-node css styleguide --css css/style.css
-    
 
 If you’ve already taken a look at the kss-node commands, this won’t look
 like rocket science to you. css is the source directory, styleguide is the end 
@@ -200,12 +198,12 @@ its exact location.
 
 You will get a beautiful and carefully sectioned styleguide you’ll be happy
 to show to your fellow team mates and customers (for this, open the newly 
-cretaed styleguide folder, and check out index.html
-).
+cretaed styleguide folder, and check out index.html).
 
 ![KSS Node Basic Styleguide][7]
 
-### Customization
+
+## Customization
 
 Not happy with the default look and feel of the style guide, and want to add a
 bit of your own branding before presenting it? Let’s customize the beast by 
@@ -214,7 +212,6 @@ creating a styleguide template and amend it.
 Simply run:
 
     kss-node --init
-    
 
 This will create a styleguide template you’ll be able to modify to your
 liking. Add your own branding to styleguide-template/index.html, and play with 
@@ -228,18 +225,18 @@ Once happy, re-generate your living styleguide by telling kss-node what
 template to use:
 
     kss-node css styleguide --css css/style.css  --template styleguide-template
-    
 
 ![KSS-node styleguide overview][8]
 
 ![KSS-node generated style guide][9]
 
-### Verdict
+
+## Verdict
 
 Really impressed by the easiness of the whole process. It takes nothing but a
 bit of discipline and some carefully placed css comments to get this styleguide 
 going… without any additional effort. Have a go and let me know what you think 
-of KSS-node.</section>
+of KSS-node.
 
  [1]: https://plus.google.com/117126049529137232309?%0A%20%20%20rel=author
  [2]: http://stylifyme.com/ "Stylify Me"
